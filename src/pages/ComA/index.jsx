@@ -7,15 +7,28 @@ import {
 import './index.css'
 
 export class ComA extends Component {
+  state = {
+    inputValue: 0,
+  }
   incremented = () => {
-    this.props.incremented()
+    this.props.incremented(this.state.inputValue)
   }
   decremented = () => {
-    this.props.decremented()
+    this.props.decremented(this.state.inputValue)
+  }
+  handleChange = (e) => {
+    this.setState({
+      inputValue: Number(e.target.value),
+    })
   }
   render() {
     return (
       <>
+        <input
+          type="number"
+          value={this.state.inputValue}
+          onChange={this.handleChange}
+        />
         <h2>ComA组件</h2>
         <button onClick={this.incremented}>+</button>
         <button onClick={this.decremented}>-</button>
@@ -26,11 +39,13 @@ export class ComA extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    incremented: () => {
-      dispatch(counterDecrementedAction())
+    incremented: (num) => {
+      setTimeout(() => {
+        dispatch(counterDecrementedAction(num))
+      }, 1000)
     },
-    decremented: () => {
-      dispatch(counterIncrementedAction())
+    decremented: (num) => {
+      dispatch(counterIncrementedAction(num))
     },
   }
 }

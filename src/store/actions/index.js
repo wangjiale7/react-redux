@@ -1,7 +1,7 @@
-export const counterIncrementedAction = () => {
-  return { type: 'counter/incremented' }
+export const counterIncrementedAction = (num) => {
+  return { type: 'counter/incremented', num }
 }
 
-export const counterDecrementedAction = () => {
-  return { type: 'counter/decremented' }
+export const counterDecrementedAction = (num) => {
+  return { type: 'counter/decremented', num }
 }

@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import store from '../../store'
 
 export class comB extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    // console.log(store.getState)
+
+    store.subscribe(() => {
+      console.log(store.getState())
+    })
+  }
   render() {
     return (
       <div>
