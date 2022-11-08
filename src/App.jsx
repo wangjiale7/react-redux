@@ -1,13 +1,14 @@
 import React from 'react'
-import ComA from './pages/ComA'
-import ComB from './pages/ComB'
+import { Counter } from './views/counter'
+
+import Login from './views/login'
 
 class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <ComA></ComA>
-        <ComB></ComB>
+        <Counter></Counter>
+        <Login></Login>
       </div>
     )
   }
